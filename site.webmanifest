@@ -1,0 +1,20 @@
+{
+  "short_name": "Snake",
+  "name": "Snake",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/snake/?utm_source=homescreen",
+  "display": "standalone",
+  "background_color": "#222738",
+  "theme_color": "#222738"
+}

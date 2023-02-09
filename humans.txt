@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Ibrahim Fariat -- Original idea and design -- https://codepen.io/fariati/pen/mdRpEYP
+    Vladimir Kutepov -- TypeScript implementation
+
+# TECHNOLOGY COLOPHON
+
+    TypeScript -- https://www.typescriptlang.org/
+    SolidStart -- https://start.solidjs.com/
+
+# SOURCE CODE
+
+    https://github.com/frenzzy/snake
