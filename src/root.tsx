@@ -9,8 +9,16 @@ import type { ManifestEntry } from 'solid-start/server/types'
 import './root.css'
 
 const isDev = import.meta.env.MODE === 'development'
-const resolve = (p: string) =>
-  path.resolve(url.fileURLToPath(new URL('./public/' + p.slice(1), import.meta.url)))
+const readFileSync = (href: string) => {
+  const file = url.fileURLToPath(new URL('./public/' + href.slice(1), import.meta.url))
+  return fs.readFileSync(file).toString().trim()
+}
+const gtm =
+  `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':` +
+  `new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],` +
+  `j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=` +
+  `'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);` +
+  `})(window,document,'script','dataLayer','GTM-TQQ8FKW');`
 
 export default function Root() {
   const context = useContext(ServerContext)
@@ -46,12 +54,17 @@ export default function Root() {
         <link rel="icon" href="https://frenzzy.github.io/snake/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="https://frenzzy.github.io/snake/icon.png" />
 
-        {!isDev && <style>{fs.readFileSync(resolve(assets[1].href)).toString().trim()}</style>}
+        {!isDev && <script innerHTML={gtm} />}
+        {!isDev && <style innerHTML={readFileSync(assets[1].href)} />}
       </Head>
       <Body>
+        <noscript>
+          <p>You need to enable JavaScript to run this app.</p>
+          {!isDev && <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQQ8FKW" />}
+        </noscript>
         <canvas width={360} height={640} />
         {isDev && <Scripts />}
-        {!isDev && <script>{fs.readFileSync(resolve(assets[0].href)).toString().trim()}</script>}
+        {!isDev && <script innerHTML={readFileSync(assets[0].href)} />}
       </Body>
     </Html>
   )

@@ -48,6 +48,7 @@ export class Input {
   }
 
   handlePointerDown = (event: PointerEvent) => {
+    event.preventDefault()
     if (!event.isPrimary) return
     addEventListener('pointermove', this.handlePointerMove)
     addEventListener('pointerup', this.handlePointerUp)

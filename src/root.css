@@ -1,6 +1,7 @@
 html {
   height: 100%;
 }
+
 body {
   margin: 0;
   height: 100%;
@@ -8,6 +9,7 @@ body {
   color: #6e7888;
   overscroll-behavior: none;
 }
+
 canvas {
   display: block;
   width: 100%;
@@ -16,4 +18,19 @@ canvas {
   -webkit-touch-callout: none;
   touch-action: none;
   user-select: none;
+}
+
+iframe {
+  width: 0;
+  height: 0;
+  display: none;
+  visibility: hidden;
+}
+
+p {
+  margin: 0;
+  padding: 1em;
+  font: bold 1em Futura, sans-serif;
+  text-align: center;
+  color: #4cffd7;
 }
