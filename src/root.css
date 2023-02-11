@@ -16,8 +16,9 @@ canvas {
   height: 100%;
   image-rendering: pixelated;
   -webkit-touch-callout: none;
-  touch-action: none;
+  -webkit-user-select: none;
   user-select: none;
+  touch-action: none;
 }
 
 iframe {
